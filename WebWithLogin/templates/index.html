@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% if Item_recommended_list %}
+        <ul>
+            {% for item in Item_recommended_list %}
+                <li>
+                    <a href="/Item/{{ item.id }}">{{ item.name_text }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No Items recommended??</p>
+    {% endif %}
+</body>
+</html>

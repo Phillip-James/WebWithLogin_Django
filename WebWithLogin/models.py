@@ -12,6 +12,7 @@ class Item(models.Model):
     num_of_users = models.IntegerField(default=1)
     last_time = models.IntegerField(default = 30)
     pub_date = models.DateField(default=datetime.date.today)
+    recommended = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name_text
