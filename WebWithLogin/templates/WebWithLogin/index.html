@@ -9,7 +9,7 @@
         <ul>
             {% for item in Item_recommended_list %}
                 <li>
-                    <a href="/Item/{{ item.id }}">{{ item.name_text }}</a>
+                    <a href="{% url 'WebWithLogin:detail' item.id %}">{{ item.name_text }}</a>
                 </li>
             {% endfor %}
         </ul>
