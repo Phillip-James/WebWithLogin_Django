@@ -5,6 +5,15 @@
     <title>Title</title>
 </head>
 <body>
+
+    <p>
+        {% if user.is_authenticated %}
+            Hello, {{ user.username }}
+        {% else %}
+            <a href="{% url 'accounts:login' %}">登入</a>
+        {% endif %}
+    </p>
+
     {% if Item_recommended_list %}
         <ul>
             {% for item in Item_recommended_list %}
@@ -15,6 +24,14 @@
         </ul>
     {% else %}
         <p>No Items recommended</p>
+    {% endif %}
+
+    {% if user.is_authenticated %}
+        <hr />
+        <form action="{% url 'accounts:logout' %}" method="post">
+            {% csrf_token %}
+            <button name="submit">Logout</button>
+        </form>
     {% endif %}
 </body>
 </html>
