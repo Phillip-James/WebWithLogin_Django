@@ -1,0 +1,19 @@
+{% extends 'WebWithLogin/base.html' %}
+{% block content %}
+    <h1>{{ username }}</h1>
+    <h3>余额： {{ userprofile.last_money }}</h3>
+    <p>{{ userprofile.introduction }}</p>
+    <p>
+        {% if subscribed_item_list %}
+            <ul>
+                {% for sub_item in subscribed_item_list %}
+                    <li>
+                        <a href="{% url 'WebWithLogin:detail' sub_item.item.id %}">
+                            item: {{ sub_item.item.name_text }} 逾期: {% if sub_item.overtime %} 是 {% else %} 否 {% endif %}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </p>
+{% endblock %}

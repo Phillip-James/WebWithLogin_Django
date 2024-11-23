@@ -1,0 +1,6 @@
+{% extends 'WebWithLogin/base.html' %}
+{% block content %}
+    <h1>操作结果</h1>
+    <h3>{{ message }}</h3>
+    <a href="{% url 'WebWithLogin:profile_page' %}">返回个人主页</a>
+{% endblock %}

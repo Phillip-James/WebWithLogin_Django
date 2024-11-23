@@ -1,0 +1,13 @@
+{% extends "WebWithLogin/base.html" %}
+{% block content %}
+    {% if form.errors %}
+        <p>账号或密码错误</p>
+    {% endif %}
+
+    <form action="{% url 'accounts:login' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_div }}
+
+        <button name="submit">登入</button>
+    </form>
+{% endblock content %}

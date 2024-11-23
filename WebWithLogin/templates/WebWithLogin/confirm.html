@@ -1,0 +1,14 @@
+{% extends 'WebWithLogin/base.html' %}
+{% block content %}
+    <h3>确认订阅</h3>
+    <p>确认订阅一下项目吗?</p>
+    <h4>{{ item.name_text }}</h4>
+    <p>价格:{{ item.price }}</p>
+    <p>您的余额:{{ profile.last_money }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" name="confirm">确认</button>
+        <button type="submit" name="cancel">取消</button>
+    </form>
+{% endblock %}

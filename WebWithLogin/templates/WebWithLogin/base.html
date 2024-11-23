@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <p>
+        {% if user.is_authenticated %}
+            Hello, {{ user.username }}
+            <form action="{% url 'accounts:logout' %}" method="post">
+                {% csrf_token %}
+                <button name="submit">Logout</button>
+            </form>
+            <form action="{% url 'WebWithLogin:profile_page' %}" method="post">
+                {% csrf_token %}
+                <button name="go_profile">个人主页</button>
+            </form>
+        {% else %}
+            <a href="{% url 'accounts:register'%}">注册</a>
+            <a href="{% url 'accounts:login' %}">登入</a>
+        {% endif %}
+        <form action="{% url 'WebWithLogin:index'%}" method="post">
+            {% csrf_token %}
+            <button name="go_index">首页</button>
+        </form>
+    </p>
+
+
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>

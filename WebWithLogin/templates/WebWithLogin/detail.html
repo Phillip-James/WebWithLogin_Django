@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Detail Of Item {{ item.name_text }}</title>
-</head>
-<body>
+{% extends 'WebWithLogin/base.html' %}
+{% block content %}
     <h2>{{ item.name_text }}</h2>
     <ul>
         <p>Price: {{ item.price }}$</p>
     </ul>
-</body>
-</html>
+    <form action="{% url 'WebWithLogin:subscribe_item' item.id %}">
+        {% csrf_token %}
+        <button name="go_sub">订阅</button>
+    </form>
+{% endblock %}
