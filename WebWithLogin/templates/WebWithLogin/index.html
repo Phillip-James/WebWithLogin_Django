@@ -1,14 +1,20 @@
-{% extends 'WebWithLogin/base.html' %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
     {% if Item_recommended_list %}
         <ul>
-            {% for Item in Item_recommended_list %}
+            {% for item in Item_recommended_list %}
                 <li>
-                    <a href="{% url 'WebWithLogin:detail' Item.id %}">{{ Item.name_text }}</a>
+                    <a href="{% url 'WebWithLogin:detail' item.id %}">{{ item.name_text }}</a>
                 </li>
             {% endfor %}
         </ul>
     {% else %}
         <p>No Items recommended</p>
     {% endif %}
-{% endblock %}
+</body>
+</html>
