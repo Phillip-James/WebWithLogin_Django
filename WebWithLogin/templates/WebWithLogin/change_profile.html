@@ -1,0 +1,9 @@
+{% extends "WebWithLogin/base.html" %}
+{% block content %}
+    <p>修改个人简介</p>
+    <form action="{% url 'WebWithLogin:change_profile' profile.user_id %}" method='post'>
+        {% csrf_token %}
+        {{ form.as_div }}
+        <button name="submit">提交</button>
+    </form>
+{% endblock content %}

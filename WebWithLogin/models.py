@@ -1,6 +1,6 @@
 import datetime
-from datetime import timezone
-
+from datetime import timezone,timedelta
+from django.utils import timezone
 from django.contrib.auth.models import User
 from django.db import models
 
@@ -31,7 +31,7 @@ class subscribed_items(models.Model):
         return f"{str(self.item)} - {self.user} - {self.subscribed_at} - {self.overtime}"
 
     def overtime_judge(self):
-        if datetime.date.today() - self.subscribed_at > self.item.last_time:
+        if datetime.date.today() - self.subscribed_at.date() > timedelta(days=self.item.last_time):
             self.overtime = True
         else:
             self.overtime = False

@@ -3,10 +3,11 @@
     <h1>{{ username }}</h1>
     <h3>余额： {{ userprofile.last_money }}</h3>
     <p>{{ userprofile.introduction }}</p>
+    <a href="{% url 'WebWithLogin:change_profile' userprofile.user_id %}">修改简介</a>
     <p>
-        {% if subscribed_item_list %}
+        {% if subscribed_items %}
             <ul>
-                {% for sub_item in subscribed_item_list %}
+                {% for sub_item in subscribed_items %}
                     <li>
                         <a href="{% url 'WebWithLogin:detail' sub_item.item.id %}">
                             item: {{ sub_item.item.name_text }} 逾期: {% if sub_item.overtime %} 是 {% else %} 否 {% endif %}

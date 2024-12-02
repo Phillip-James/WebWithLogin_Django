@@ -7,4 +7,5 @@ urlpatterns = [
     path('subscribe/<int:Item_id>/', views.subscribe_item, name="subscribe_item"),
     path("<int:Item_id>/", views.detail, name="detail"),
     path("profile_page/", views.profile_page, name="profile_page"),
+    path("change_profile/<int:user_id>/", views.change_profile, name="change_profile"),
 ]
